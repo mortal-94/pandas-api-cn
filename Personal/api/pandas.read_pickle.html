@@ -605,33 +605,35 @@ Testing
 <dl class="py function">
 <dt class="sig sig-object py" id="pandas.read_pickle">
 <span class="sig-prename descclassname"><span class="pre">pandas.</span></span><span class="sig-name descname"><span class="pre">read_pickle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath_or_buffer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'infer'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/pandas-dev/pandas/blob/v1.5.2/pandas/io/pickle.py#L115-L216"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pandas.read_pickle" title="Permalink to this definition">#</a></dt>
-<dd><p>Load pickled pandas object (or any object) from file.</p>
+<dd><p>从文件中加载 pickled pandas 对象（或任何对象）。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Loading pickled data received from untrusted sources can be
-unsafe. See <a class="reference external" href="https://docs.python.org/3/library/pickle.html">here</a>.</p>
+<p>从不信任的来源加载 piclked 数据是不安全的。 看 <a class="reference external" href="https://docs.python.org/3/library/pickle.html">这里</a>.</p>
 </div>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>filepath_or_buffer</strong><span class="classifier">str, path object, or file-like object</span></dt><dd><p>String, path object (implementing <code class="docutils literal notranslate"><span class="pre">os.PathLike[str]</span></code>), or file-like
-object implementing a binary <code class="docutils literal notranslate"><span class="pre">readlines()</span></code> function.</p>
+<dt><strong>filepath_or_buffer</strong><span class="classifier">str, path object, or file-like object</span></dt><dd>
+  <p>字符串、路径对象（实现 <code class="docutils literal notranslate"><span class="pre">os.PathLike[str]</span></code>）或者 实现了返回二进制的 <code class="docutils literal notranslate"><span class="pre">readlines()</span></code> 函数的 类文件对象。
+</p>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 1.0.0: </span>Accept URL. URL is not limited to S3 and GCS.</p>
+<p><span class="versionmodified changed">在 1.0.0 版更改了：</span>接受 URL。 URL 不限于 S3 和 GCS。</p>
 </div>
 </dd>
-<dt><strong>compression</strong><span class="classifier">str or dict, default ‘infer’</span></dt><dd><p>For on-the-fly decompression of on-disk data. If ‘infer’ and ‘filepath_or_buffer’ is
-path-like, then detect compression from the following extensions: ‘.gz’,
-‘.bz2’, ‘.zip’, ‘.xz’, ‘.zst’, ‘.tar’, ‘.tar.gz’, ‘.tar.xz’ or ‘.tar.bz2’
-(otherwise no compression).
-If using ‘zip’ or ‘tar’, the ZIP file must contain only one data file to be read in.
-Set to <code class="docutils literal notranslate"><span class="pre">None</span></code> for no decompression.
-Can also be a dict with key <code class="docutils literal notranslate"><span class="pre">'method'</span></code> set
-to one of {<code class="docutils literal notranslate"><span class="pre">'zip'</span></code>, <code class="docutils literal notranslate"><span class="pre">'gzip'</span></code>, <code class="docutils literal notranslate"><span class="pre">'bz2'</span></code>, <code class="docutils literal notranslate"><span class="pre">'zstd'</span></code>, <code class="docutils literal notranslate"><span class="pre">'tar'</span></code>} and other
-key-value pairs are forwarded to
-<code class="docutils literal notranslate"><span class="pre">zipfile.ZipFile</span></code>, <code class="docutils literal notranslate"><span class="pre">gzip.GzipFile</span></code>,
-<code class="docutils literal notranslate"><span class="pre">bz2.BZ2File</span></code>, <code class="docutils literal notranslate"><span class="pre">zstandard.ZstdDecompressor</span></code> or
-<code class="docutils literal notranslate"><span class="pre">tarfile.TarFile</span></code>, respectively.
+<dt><strong>compression</strong><span class="classifier">str or dict, default ‘infer’</span></dt><dd>
+  <p>用于磁盘上数据的即时解压缩。如果 'infer' 和 'filepath_or_buffer' 是路径，则检测以下扩展名的压缩：'.gz'、'.bz2'、'.zip'、'.xz'、'.zst'、'.tar' , '.tar.gz', '.tar.xz' 或
+  '.tar.bz2'（其他不压缩）。
+如果使用“zip”或“tar”，ZIP 文件必须只包含一个要读入的数据文件。
+设置为 <code class="docutils literal notranslate"><span class="pre">None</span></code> 表示不解压。
+也可以是键 <code class="docutils literal notranslate"><span class="pre">'method'</span></code> 值设置为 {<code class="docutils literal notranslate"><span class="pre">'zip'</span></code>, <code
+  class="docutils literal notranslate"><span class="pre">'gzip'</span></code>, <code
+  class="docutils literal notranslate"><span class="pre">'bz2'</span></code>, <code
+  class="docutils literal notranslate"><span class="pre">'zstd'</span></code>, <code
+  class="docutils literal notranslate"><span class="pre">'tar'</span></code>} 之一的字典，其他键值对分别被转发到 <code class="docutils literal notranslate"><span class="pre">zipfile.ZipFile</span></code>, <code
+    class="docutils literal notranslate"><span class="pre">gzip.GzipFile</span></code>,
+  <code class="docutils literal notranslate"><span class="pre">bz2.BZ2File</span></code>, <code
+    class="docutils literal notranslate"><span class="pre">zstandard.ZstdDecompressor</span></code> 或
+  <code class="docutils literal notranslate"><span class="pre">tarfile.TarFile</span></code>。
 As an example, the following could be passed for Zstandard decompression using a
 custom compression dictionary:
 <code class="docutils literal notranslate"><span class="pre">compression={'method':</span> <span class="pre">'zstd',</span> <span class="pre">'dict_data':</span> <span class="pre">my_compression_dict}</span></code>.</p>
