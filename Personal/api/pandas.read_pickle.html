@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -629,29 +629,28 @@ Testing
   class="docutils literal notranslate"><span class="pre">'gzip'</span></code>, <code
   class="docutils literal notranslate"><span class="pre">'bz2'</span></code>, <code
   class="docutils literal notranslate"><span class="pre">'zstd'</span></code>, <code
-  class="docutils literal notranslate"><span class="pre">'tar'</span></code>} 之一的字典，其他键值对分别被转发到 <code class="docutils literal notranslate"><span class="pre">zipfile.ZipFile</span></code>, <code
-    class="docutils literal notranslate"><span class="pre">gzip.GzipFile</span></code>,
-  <code class="docutils literal notranslate"><span class="pre">bz2.BZ2File</span></code>, <code
-    class="docutils literal notranslate"><span class="pre">zstandard.ZstdDecompressor</span></code> 或
+  class="docutils literal notranslate"><span class="pre">'tar'</span></code>} 之一的字典，其他键值对分别被转发到 
+  <code class="docutils literal notranslate"><span class="pre">zipfile.ZipFile</span></code>, 
+  <code class="docutils literal notranslate"><span class="pre">gzip.GzipFile</span></code>,
+  <code class="docutils literal notranslate"><span class="pre">bz2.BZ2File</span></code>, 
+  <code class="docutils literal notranslate"><span class="pre">zstandard.ZstdDecompressor</span></code> 或
   <code class="docutils literal notranslate"><span class="pre">tarfile.TarFile</span></code>。
-As an example, the following could be passed for Zstandard decompression using a
-custom compression dictionary:
+举个例子, 以下就是通过使用自定义压缩字典进行Zstandard解压:
 <code class="docutils literal notranslate"><span class="pre">compression={'method':</span> <span class="pre">'zstd',</span> <span class="pre">'dict_data':</span> <span class="pre">my_compression_dict}</span></code>.</p>
 <blockquote>
 <div><div class="versionadded">
-<p><span class="versionmodified added">New in version 1.5.0: </span>Added support for <cite>.tar</cite> files.</p>
+<p><span class="versionmodified added">1.5.0版本的新内容： </span>添加了对 <cite>.tar</cite> 文件的支持。</p>
 </div>
 </div></blockquote>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 1.4.0: </span>Zstandard support.</p>
+<p><span class="versionmodified changed">在版本 1.4.0 中更改： </span>支持 Zstandard。</p>
 </div>
 </dd>
-<dt><strong>storage_options</strong><span class="classifier">dict, optional</span></dt><dd><p>Extra options that make sense for a particular storage connection, e.g.
-host, port, username, password, etc. For HTTP(S) URLs the key-value pairs
-are forwarded to <code class="docutils literal notranslate"><span class="pre">urllib.request.Request</span></code> as header options. For other
-URLs (e.g. starting with “s3://”, and “gcs://”) the key-value pairs are
-forwarded to <code class="docutils literal notranslate"><span class="pre">fsspec.open</span></code>. Please see <code class="docutils literal notranslate"><span class="pre">fsspec</span></code> and <code class="docutils literal notranslate"><span class="pre">urllib</span></code> for more
-details, and for more examples on storage options refer <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/io.html?highlight=storage_options#reading-writing-remote-files">here</a>.</p>
+<dt><strong>storage_options</strong><span class="classifier">dict, optional</span></dt><dd>
+<p>对特定存储连接有意义的额外选项，如主机、端口、用户名、密码等。对于 HTTP(S) URL，键值对作为请求头转发到 <code class="docutils literal notranslate"><span class="pre">urllib.request.Request</span></code>。
+  对于其他 URL（例如以“s3://”和“gcs://”开头），键值对将转发到 <code class="docutils literal notranslate"><span class="pre">fsspec.open</span></code>。
+  请参阅 <code class="docutils literal notranslate"><span class="pre">fsspec</span></code> 和 <code class="docutils literal notranslate"><span class="pre">urllib</span></code> 了解更多详细信息；有关存储选项的更多示例，请参阅
+   <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/io.html?highlight=storage_options#reading-writing-remote-files">此处</a>。</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 1.2.0.</span></p>
 </div>
@@ -660,28 +659,27 @@ details, and for more examples on storage options refer <a class="reference exte
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>unpickled</strong><span class="classifier">same type as object stored in file</span></dt><dd></dd>
+<dt><strong>unpickled</strong><span class="classifier">与文件中存储的对象类型相同</span></dt><dd></dd>
 </dl>
 </dd>
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference internal" href="pandas.DataFrame.to_pickle.html#pandas.DataFrame.to_pickle" title="pandas.DataFrame.to_pickle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataFrame.to_pickle</span></code></a></dt><dd><p>Pickle (serialize) DataFrame object to file.</p>
+<dt><a class="reference internal" href="pandas.DataFrame.to_pickle.html#pandas.DataFrame.to_pickle" title="pandas.DataFrame.to_pickle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataFrame.to_pickle</span></code></a></dt><dd><p>将 DataFrame 对象 Pickle（序列化）到文件中。</p>
 </dd>
-<dt><a class="reference internal" href="pandas.Series.to_pickle.html#pandas.Series.to_pickle" title="pandas.Series.to_pickle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Series.to_pickle</span></code></a></dt><dd><p>Pickle (serialize) Series object to file.</p>
+<dt><a class="reference internal" href="pandas.Series.to_pickle.html#pandas.Series.to_pickle" title="pandas.Series.to_pickle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Series.to_pickle</span></code></a></dt><dd><p>将 Series 对象 Pickle（序列化）到文件中。</p>
 </dd>
-<dt><a class="reference internal" href="pandas.read_hdf.html#pandas.read_hdf" title="pandas.read_hdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_hdf</span></code></a></dt><dd><p>Read HDF5 file into a DataFrame.</p>
+<dt><a class="reference internal" href="pandas.read_hdf.html#pandas.read_hdf" title="pandas.read_hdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_hdf</span></code></a></dt><dd><p>将 HDF5 文件读入 DataFrame。</p>
 </dd>
-<dt><a class="reference internal" href="pandas.read_sql.html#pandas.read_sql" title="pandas.read_sql"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_sql</span></code></a></dt><dd><p>Read SQL query or database table into a DataFrame.</p>
+<dt><a class="reference internal" href="pandas.read_sql.html#pandas.read_sql" title="pandas.read_sql"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_sql</span></code></a></dt><dd><p>将 SQL 查询到的内容或数据库表读入 DataFrame。</p>
 </dd>
-<dt><a class="reference internal" href="pandas.read_parquet.html#pandas.read_parquet" title="pandas.read_parquet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_parquet</span></code></a></dt><dd><p>Load a parquet object, returning a DataFrame.</p>
+<dt><a class="reference internal" href="pandas.read_parquet.html#pandas.read_parquet" title="pandas.read_parquet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_parquet</span></code></a></dt><dd><p>加载一个 parquet 对象，返回一个 DataFrame。</p>
 </dd>
 </dl>
 </div>
 <p class="rubric">Notes</p>
-<p>read_pickle is only guaranteed to be backwards compatible to pandas 0.20.3
-provided the object was serialized with to_pickle.</p>
+<p>read_pickle 只保证向后兼容 pandas 0.20.3，前提是对象是用 to_pickle 序列化的。</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">original_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="p">{</span><span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)}</span>
